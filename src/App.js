@@ -22,10 +22,12 @@ function App() {
 
     try {
         const parsedInput = JSON.parse(input);
-        const result = await axios.post('/api/bfhl', parsedInput); // Updated URL for serverless function
+        // Update the URL to your deployed function
+        const result = await axios.post('https://loquacious-melomakarona-f10161.netlify.app/bfhl', parsedInput);
         setResponse(result.data);
     } catch (err) {
-        setError(err.message);
+        console.error(err); // Log the error for debugging
+        setError(err.response ? err.response.data : err.message);
     }
 };
 
