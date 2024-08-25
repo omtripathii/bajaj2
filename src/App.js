@@ -23,7 +23,7 @@ function App() {
     try {
       const parsedInput = JSON.parse(input);
       // Change the URL to your local server
-      const result = await axios.post('/bfhl', parsedInput);
+      const result = await axios.post('/.netlify/functions/server/bfhl', parsedInput);
       setResponse(result.data);
     } catch (err) {
       setError(err.message);
