@@ -21,14 +21,15 @@ function App() {
     setResponse(null);
 
     try {
-      const parsedInput = JSON.parse(input);
-      // Change the URL to your local server
-      const result = await axios.post('/bfhl', parsedInput);
-      setResponse(result.data);
+        const parsedInput = JSON.parse(input);
+        const result = await axios.post('/api/bfhl', parsedInput); // Updated URL for serverless function
+        setResponse(result.data);
     } catch (err) {
-      setError(err.message);
+        setError(err.message);
     }
-  };
+};
+
+
 
   const filterResponse = () => {
     if (!response) return null;
