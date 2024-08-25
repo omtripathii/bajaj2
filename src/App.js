@@ -22,7 +22,8 @@ function App() {
 
     try {
       const parsedInput = JSON.parse(input);
-      const result = await axios.post('https://bajajbackend.netlify.app/bfhl', parsedInput);
+      // Change the URL to your local server
+      const result = await axios.post('/bfhl', parsedInput);
       setResponse(result.data);
     } catch (err) {
       setError(err.message);
